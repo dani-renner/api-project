@@ -1,6 +1,6 @@
-# (Application Name)
+# 1st API key use
 
-#### (Brief Description of Application)
+#### Made with Epicodus lesson
 
 #### By Dani Renner
 
@@ -24,14 +24,10 @@
 
 * You can clone the repository to your desktop
 * In the terminal, you will need to enter npm install and npm run build to use the environment.
+* You will need to add your own API Key. Set it as a variable in a .env file in the root directory of your project. Run "npm install dotenv-webpack --save dev" in the terminal and add "new Dotenv()," to the plugins section of your webpack.config.js.
 * In the terminal, enter npm run start to view the project in a live server. Use Chrome for best results.
 * In the terminal, enter npm run test to use Jest.
 * Open the project in a text editor to view the code.
-
-## Known Bugs
-
-* _Any known issues_
-* _should go here_
 
 ## License
 

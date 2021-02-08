@@ -15,7 +15,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new Dotenv()
+    new Dotenv(),
     new HtmlWebpackPlugin({
       title: 'Weather',
       template: './docs/index.html',
