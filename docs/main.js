@@ -11,19 +11,25 @@ function clearFields()  {
   $(".showWind").text("");
   $('#zipcode').val("");
 }
+function getElements(response) {
+  if (response.main) {
+    $('.showHumidity').text(`The humidity in ${city} is ${response.main.humidity}%`);
+    $(".showTemp").text(`The temperature is ${parseInt(response.main.temp)} degrees.`);
+    $(".showWind").text(`The wind speed is ${response.wind.speed} mph.`);
+  }
+  else {
+    $('.showErrors').text(`There was an error: ${response.message}`);
+  }
+}
+
 
 $(document).ready(function() {
   $('#weatherLocation').click(function() {
     let city = $('#location').val();
     clearFields();
-    let promise = WeatherService.getWeather(city);
-    promise.then(function(response) {
-      const body = JSON.parse(response); 
-      $(".showHumidity").text(`The humidity in ${city} is ${body.main.humidity}%`);
-      $(".showTemp").text(`The temperature is ${parseInt(body.main.temp)} degrees.`);
-      $(".showWind").text(`The wind speed is ${body.wind.speed} mph.`);
-    },  function(error) {
-      $(".showErrors").text(`There was an error processing your request: ${error}`);
+    WeatherService.getWeather(city)
+    .then(function(response) {
+      getElements(response);
     });
   });
   
